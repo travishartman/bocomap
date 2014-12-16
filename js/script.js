@@ -97,7 +97,11 @@ thedata = data;
 // new array for all data
 newdata = {};
 results = {};
+districts = {};
+
+
 pollPlace = {}; //keep outside loop
+racelevel = {districts:pollPlace, candidates:candidates }
 
                var candidates                     =     {};
                 var names                         =     {};
@@ -112,8 +116,12 @@ for (race in races)
                  
                  pollPlace[pp] = {};
 
-  
-                races[race] = pollPlace;
+                // districts[""] = "test";
+                candidates[candidates] = "candidates_names";
+
+                // races[race] = pollPlace;
+                races[race] = racelevel;
+                // races[race] = candidates;
 
 
                
