@@ -1,0 +1,34 @@
+/*bocompa css*/
+
+
+
+#main-content {
+  width: 960;
+  margin: 0, 15px, 0, 15px;
+}
+
+.my-map {
+  height: 500px;
+}
+
+.container {
+  width: 900px;
+}
+
+
+.boco {
+	fill: #cdc;
+  /*transition: fill 0.2s ease;*/
+}
+
+.bocomap-edges {
+  fill: none;
+  stroke: #000;
+  stroke-width: .75px;
+  /*stroke-dasharray: 2,2;*/
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+
+
+}
