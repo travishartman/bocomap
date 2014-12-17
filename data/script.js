@@ -212,7 +212,7 @@ for (objnum in newdata)
                     candidate = newdata[objnum][dist]["audit"][cand]
                     // console.log(dist)
                     // console.log(cand)
-                    console.log(candidate)
+                    //console.log(candidate)
 
                     var winner  =   {candidate: "", percentage:0};
                     if (newdata[objnum][dist]["audit"][ts]>newdata[objnum][dist]["audit"][st] && newdata[objnum][dist]["audit"][ts]>newdata[objnum][dist]["audit"][rf])
@@ -226,7 +226,7 @@ for (objnum in newdata)
                     }
 
 
-                        console.log(winner)
+                        //console.log(winner)
                     
                     
                     }
@@ -255,7 +255,7 @@ for (objnum in newdata)
                     if (newdata[objnum][dist][ts] > newdata[objnum][dist][st]) 
                     {
                     race = {percentage: candidate[ts]/ (candidate[ts] + candidate[st]), votes: "testing"};
-                        console.log(race.percentage*100)
+                        //console.log(race.percentage*100)
 
                         } //close if statement
     // console.log(candName)
