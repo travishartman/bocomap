@@ -68,6 +68,8 @@ d3.json('data/data.json', function(data) {
     //So we loop through the data. If theCandidates[name] doensn't exist, we create it.
     //If it does exist, we move on. 
     //The end result is that theCandidates contains our finine universe of names.
+    //This has no bearing on the data building below. We just want to make sure our data is consistent.
+    //Good news, it is!
 
     $.each(data, function(i, item) {
         if (!theCandidates[item]) {
@@ -122,5 +124,15 @@ d3.json('data/data.json', function(data) {
         //... End of the loop, on to the next precinct.
 
     });
+
+    
+
+
+
+    //That was a lot of work. What if we don't want to do all of that each time the browser loads the page?
+    //We could just save this out as a new json object. To do it, just convert the thePrecincts object to json...
+    //...and send it to the console window. Then, cut and paste that into a new json file. Now you don't have to worry about it in your script.
+    console.log(JSON.stringify(thePrecincts));
+
 
 });

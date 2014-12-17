@@ -180,7 +180,7 @@ for (race in races)
                             var test = a_races[group][name];
                             // travis[a_races[group[name]]] = "test" + [group]
                             // console.log(travis)
-                            //console.log(test  + " group: " + [group] + " name: " + [name])
+                            console.log(test  + " group: " + [group] + " name: " + [name])
 
                             // gets entire list in each candidates
                             // candidates[a_races[group][name]] = {};
@@ -188,7 +188,7 @@ for (race in races)
                         } //end name loop
 
                         // travis[]
-                        //console.log("******")
+                        console.log("******")
                             // console.log(a_races[group)
                             // test = a_races[group] 
 //                              ["Tom Schweich", "Sean O'Toole ", "Rodney Farthing"]
@@ -486,6 +486,5 @@ var path = d3.geo.path()
 
 
 
-		
-
+        
 

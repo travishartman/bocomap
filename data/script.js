@@ -83,11 +83,11 @@ for (x=1; x<thedata.length; x++)
         // var race = {};
         // var candidates = {};
         // create indiviual race objects and set the candidates to them
-        var audit   		=   [];
-        audit["candidate"] 	= 	ts;
-        audit.candidate["votes"]   	=   thedata[x][ts];
-        audit["candidate"] 	= 	st   
-        audit.candidate["votes"] 		=   thedata[x][st];
+        var audit           =   [];
+        audit["candidate"]  =   ts;
+        audit.candidate["votes"]    =   thedata[x][ts];
+        audit["candidate"]  =   st   
+        audit.candidate["votes"]        =   thedata[x][st];
         audit[rf]   =   thedata[x][rf];
         var usrep4  =   {};
         usrep4[ni]  =   thedata[x][ni];
@@ -212,7 +212,7 @@ for (objnum in newdata)
                     candidate = newdata[objnum][dist]["audit"][cand]
                     // console.log(dist)
                     // console.log(cand)
-                    //console.log(candidate)
+                    console.log(candidate)
 
                     var winner  =   {candidate: "", percentage:0};
                     if (newdata[objnum][dist]["audit"][ts]>newdata[objnum][dist]["audit"][st] && newdata[objnum][dist]["audit"][ts]>newdata[objnum][dist]["audit"][rf])
@@ -226,7 +226,7 @@ for (objnum in newdata)
                     }
 
 
-                        //console.log(winner)
+                        console.log(winner)
                     
                     
                     }
@@ -255,7 +255,7 @@ for (objnum in newdata)
                     if (newdata[objnum][dist][ts] > newdata[objnum][dist][st]) 
                     {
                     race = {percentage: candidate[ts]/ (candidate[ts] + candidate[st]), votes: "testing"};
-                        //console.log(race.percentage*100)
+                        console.log(race.percentage*100)
 
                         } //close if statement
     // console.log(candName)
@@ -385,6 +385,5 @@ var path = d3.geo.path()
 
 
 
-		
-
+        
 
