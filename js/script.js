@@ -158,14 +158,13 @@ for (race in races)
                 // revenue[bm] =   thedata[x][bm];
                 // revenue[cr] =   thedata[x][cr];
 
-
-
-    } // close race loop
   for (group in a_races)
                     {
                         // console.log(a_races)
                        // iterate through names in group - (name = number in array position of names in a_races[group])
                         for (name in a_races[group]) {
+
+                            
 
                             // console.log(a_races[group][name])
                             // console.log(group[name])
@@ -177,10 +176,14 @@ for (race in races)
                             // returns just names
                             // console.log(a_races[group][name])
                             // test = {};
-                            var test = a_races[group][name];
+                            // var travis = {};
+                            var travis = a_races[group][name];
+                            console.log(travis) 
                             // travis[a_races[group[name]]] = "test" + [group]
                             // console.log(travis)
-                            console.log(test  + " group: " + [group] + " name: " + [name])
+                            // console.log(test  + " group: " + [group] + " name: " + [name])
+                            // console.log(race2 +  race)
+                            
 
                             // gets entire list in each candidates
                             // candidates[a_races[group][name]] = {};
@@ -188,6 +191,7 @@ for (race in races)
                         } //end name loop
 
                         // travis[]
+                        
                         console.log("******")
                             // console.log(a_races[group)
                             // test = a_races[group] 
@@ -209,6 +213,10 @@ for (race in races)
                         // candidates[test] = {}
 
            } // end race group loop
+
+
+    } // close first race loop
+
 
 
 
