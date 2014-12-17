@@ -99,11 +99,13 @@ newdata = {};
 results = {};
 districts = {};
 
-
+candidates                     =     {};
 pollPlace = {}; //keep outside loop
-racelevel = {districts:pollPlace, candidates:candidates }
+travis = {};
+// set dual level object at race level, 
+racelevel = {districts:pollPlace, candidates: travis}
 
-               var candidates                     =     {};
+ 
                 var names                         =     {};
                 var candid                        =     {};
                 var votes                         =     {};
@@ -112,48 +114,19 @@ for (race in races)
     {   // {console.log(race)
         for (x in thedata)    
             { 
-                 var pp = thedata[x].polling_place;
-                 
+                 var pp = thedata[x].polling_place;              
                  pollPlace[pp] = {};
-
-                // districts[""] = "test";
-                candidates[candidates] = "candidates_names";
-
-                // races[race] = pollPlace;
                 races[race] = racelevel;
-                // races[race] = candidates;
-
-
-               
             } // close x loop for poll place
 
+                // iterate through a_races group array
+              
+
+           // only gets very last name of whole list in each candidates
+           // candidates[a_races[group][name]] = {};
 
 
-
-                    
-
-// iterate through a_races group array
-                for (group in a_races)
-                    {
-
-                       // iterate through names in group
-                        for (name in a_races[group]) {
-
-                            // console.log (a_races[group][name])
-                            names = a_races[group][name];
-                            // id = id[group][name];
-                            // console.log(id)
-
-
-                        } //end name loop
-
-                    for (x = 0; x < a_races[group].length; x++) 
-                    {
-                        ida = id[group[x]]; console.log(ida)
-                    }
-
-                    } // end race group loop
-
+// console.log("*****************")
 
 
 
@@ -162,33 +135,80 @@ for (race in races)
                 // audit["name"]              =     st   
                 // audit.candidate2["votes2"]         =   thedata[x][st];
                 // audit[rf]                         =   thedata[x][rf];
-                var usrep4  =   {};
-                usrep4[ni]  =   thedata[x][ni];
-                usrep4[vh]  =   thedata[x][vh];
-                usrep4[hy]  =   thedata[x][hy];
-                var strep44 =   {};
-                strep44[tp] =   thedata[x][tp];
-                strep44[cr] =   thedata[x][cr];
-                var strep47 =   {};
-                strep47[jw] =   thedata[x][jw];
-                strep47[cb] =   thedata[x][cb];
-                var jcirc13 =   {};
-                jcirc13[ks] =   thedata[x][ks]
-                jcirc13[mw] =   thedata[x][mw]
-                var commish =   {};
-                commish[da] =   thedata[x][da];
-                commish[jp] =   thedata[x][jp];
-                var deeds   =   {};
-                deeds[nd]   =   thedata[x][nd];
-                deeds[lb]   =   thedata[x][lb];
-                var revenue =   {};
-                revenue[bm] =   thedata[x][bm];
-                revenue[cr] =   thedata[x][cr];
+                // var usrep4  =   {};
+                // usrep4[ni]  =   thedata[x][ni];
+                // usrep4[vh]  =   thedata[x][vh];
+                // usrep4[hy]  =   thedata[x][hy];
+                // var strep44 =   {};
+                // strep44[tp] =   thedata[x][tp];
+                // strep44[cr] =   thedata[x][cr];
+                // var strep47 =   {};
+                // strep47[jw] =   thedata[x][jw];
+                // strep47[cb] =   thedata[x][cb];
+                // var jcirc13 =   {};
+                // jcirc13[ks] =   thedata[x][ks]
+                // jcirc13[mw] =   thedata[x][mw]
+                // var commish =   {};
+                // commish[da] =   thedata[x][da];
+                // commish[jp] =   thedata[x][jp];
+                // var deeds   =   {};
+                // deeds[nd]   =   thedata[x][nd];
+                // deeds[lb]   =   thedata[x][lb];
+                // var revenue =   {};
+                // revenue[bm] =   thedata[x][bm];
+                // revenue[cr] =   thedata[x][cr];
 
 
 
     } // close race loop
+  for (group in a_races)
+                    {
+                        // console.log(a_races)
+                       // iterate through names in group - (name = number in array position of names in a_races[group])
+                        for (name in a_races[group]) {
 
+                            // console.log(a_races[group][name])
+                            // console.log(group[name])
+                            // console.log(group)
+                            // returns just position of name in array - goes through entire group of races
+                            // console.log(name)
+                            // returns arrays of names in gorup + undefined = due to bracket position
+                            // console.log(a_races[group[name]])
+                            // returns just names
+                            // console.log(a_races[group][name])
+                            // test = {};
+                            var test = a_races[group][name];
+                            // travis[a_races[group[name]]] = "test" + [group]
+                            // console.log(travis)
+                            console.log(test  + " group: " + [group] + " name: " + [name])
+
+                            // gets entire list in each candidates
+                            // candidates[a_races[group][name]] = {};
+
+                        } //end name loop
+
+                        // travis[]
+                        console.log("******")
+                            // console.log(a_races[group)
+                            // test = a_races[group] 
+//                              ["Tom Schweich", "Sean O'Toole ", "Rodney Farthing"]
+  //                            ["Nate Irvin ", "Vicky Hartzler ", "Herschel Young "]
+//                              ["Thomas Pauley ", "Caleb Rowden "]
+//                              ["John Wright ", "Charles (Chuck) Basye "]
+//                              ["Kimberly Shaw ", "Michael R. Whitworth"]
+//                              ["Daniel K. Atwill ", "James B. Pounds "]
+//                              ["Nora Dietzel ", "Lisa Ballenger "]
+//                              ["Brian C. McCollum", "Cheri Toalson Reisch "]
+
+                            // console.log(group[name])
+
+                            // console.log(group)
+
+                        // only get last of each group into "candidates"
+                        // candidates[a_races[group][name]] = {};
+                        // candidates[test] = {}
+
+           } // end race group loop
 
 
 
