@@ -83,11 +83,11 @@ for (x=1; x<thedata.length; x++)
         // var race = {};
         // var candidates = {};
         // create indiviual race objects and set the candidates to them
-        var audit   		=   [];
-        audit["candidate"] 	= 	ts;
-        audit.candidate["votes"]   	=   thedata[x][ts];
-        audit["candidate"] 	= 	st   
-        audit.candidate["votes"] 		=   thedata[x][st];
+        var audit           =   [];
+        audit["candidate"]  =   ts;
+        audit.candidate["votes"]    =   thedata[x][ts];
+        audit["candidate"]  =   st   
+        audit.candidate["votes"]        =   thedata[x][st];
         audit[rf]   =   thedata[x][rf];
         var usrep4  =   {};
         usrep4[ni]  =   thedata[x][ni];
@@ -385,6 +385,5 @@ var path = d3.geo.path()
 
 
 
-		
-
+        
 
