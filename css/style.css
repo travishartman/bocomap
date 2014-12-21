@@ -14,21 +14,102 @@
 .container {
   width: 900px;
 }
+.button5 {
+	margin-top: 5%;
+	z-index: 5
+}
 
+.chart {
+	margin-top: -58%;
+	/*margin-left: ;*/
+  /*transition: fill 0.2s ease;*/
+}
 
 .boco {
-	fill: #cdc;
-  /*transition: fill 0.2s ease;*/
+color: #555962;
+
 }
 
 .bocomap-edges {
   fill: none;
   stroke: #000;
-  stroke-width: .75px;
+  stroke-width: .25px;
   /*stroke-dasharray: 2,2;*/
   stroke-linejoin: round;
   stroke-linecap: round;
   pointer-events: none;
 
 
+}
+
+.R {
+fill: #AA3939;
+
+}
+
+.D {
+fill: #23438B;
+
+}
+
+.L{
+fill : #A37A00;	
+}
+
+.NaN{
+
+fill: #828282;
+}
+
+.tooltip{ background-color:rgba(68,136,187,0.5);;
+          margin: 10px;
+          height: 50px;
+          width: 150px;
+          padding-left: 10px; 
+          padding-top: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+        }
+
+
+/*opacity*/
+.forty-fortyfive {
+opacity: .90;
+}
+
+.fortysix-fifty{
+opacity: .85;
+}
+
+.fiftyone-fiftyfive {
+opacity: .80;
+}
+
+.fiftysix-sixty {
+opacity: .75;
+}
+
+.sixtyone-sixtyfive {
+opacity: .70;
+}
+
+.sixtysix-seventy {
+opacity: .65;
+}
+
+.seventyone-seventyfive {
+opacity: .60;
+}
+
+.seventysix-eighty {
+opacity: .55;
+}
+
+.eightone-eightyfive {
+opacity: .50;
+}
+
+.eightysix-ninety {
+opacity: .45;
 }
