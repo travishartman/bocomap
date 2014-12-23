@@ -4,27 +4,27 @@
 var theCandidates = {};
 
 //Here's what that looks like populated:
-// var theCandidates = {
-//     "polling_place": {},
-//     "Tom Schweich": {},
-//     "Sean O'Toole ": {},
-//     "Rodney Farthing": {},
-//     "Nate Irvin ": {},
-//     "Vicky Hartzler ": {},
-//     "Herschel Young ": {},
-//     "Thomas Pauley ": {},
-//     "Caleb Rowden ": {},
-//     "John Wright ": {},
-//     "Charles (Chuck) Basye ": {},
-//     "Kimberly Shaw ": {},
-//     "Michael R. Whitworth": {},
-//     "Daniel K. Atwill ": {},
-//     "James B. Pounds ": {},
-//     "Nora Dietzel ": {},
-//     "Lisa Ballenger ": {},
-//     "Brian C. McCollum": {},
-//     "Cheri Toalson Reisch ": {}
-// };
+var theCandidates = {
+    "polling_place": {},
+    "Tom Schweich": "R",
+    "Sean O'Toole ": {},
+    "Rodney Farthing": {},
+    "Nate Irvin ": {},
+    "Vicky Hartzler ": {},
+    "Herschel Young ": {},
+    "Thomas Pauley ": {},
+    "Caleb Rowden ": {},
+    "John Wright ": {},
+    "Charles (Chuck) Basye ": {},
+    "Kimberly Shaw ": {},
+    "Michael R. Whitworth": {},
+    "Daniel K. Atwill ": {},
+    "James B. Pounds ": {},
+    "Nora Dietzel ": {},
+    "Lisa Ballenger ": {},
+    "Brian C. McCollum": {},
+    "Cheri Toalson Reisch ": {}
+};
 
 
 
@@ -72,9 +72,15 @@ d3.json('data/data.json', function(data) {
     //Good news, it is!
 
     $.each(data, function(i, item) {
-        if (!theCandidates[item]) {
-            theCandidates[item] = {};
-        }
+
+        $.each(item, function(cand, votes) {
+
+            if (!theCandidates[cand]) {
+                theCandidates[cand] = {};
+            }
+
+        })
+        
     });
 
 
@@ -94,7 +100,7 @@ d3.json('data/data.json', function(data) {
         thePrecincts[item.polling_place] = {};
 
         //Next we loop through our theRaces object, which gives us the candidates in each race
-        //We're doing this bc the main data doesn't do it. It's just a list of names.
+        //We're doing this bc the main data doesn't associate candidates with races. It's just a list of names.
         //We need to know which group they belong to.
         $.each(theRaces, function(race, cands) {
 
@@ -102,6 +108,8 @@ d3.json('data/data.json', function(data) {
             //And bc we'd like to sort the candidates, most votes to least.
             thePrecincts[item.polling_place][race] = [];
 
+
+            //Now we loop through the actual candidate names in our races object.
             $.each(cands, function(ii, name) {
 
                 //Now, we're getting into some real Inception bullshit.
@@ -112,7 +120,8 @@ d3.json('data/data.json', function(data) {
 
                 var candObj = {
                     cand : name,
-                    votes : parseInt(item[name])
+                    votes : parseInt(item[name]),
+                    party : theCandidates[name]
                 }
 
                 //Finally, we push the candidate object into the race array for the current precinct.
@@ -132,7 +141,7 @@ d3.json('data/data.json', function(data) {
     //That was a lot of work. What if we don't want to do all of that each time the browser loads the page?
     //We could just save this out as a new json object. To do it, just convert the thePrecincts object to json...
     //...and send it to the console window. Then, cut and paste that into a new json file. Now you don't have to worry about it in your script.
-    console.log(JSON.stringify(thePrecincts));
+    //console.log(JSON.stringify(thePrecincts));
 
 
 });

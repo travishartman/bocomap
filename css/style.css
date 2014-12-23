@@ -21,8 +21,25 @@
 
 .chart {
 	margin-top: -58%;
+  position: relative;
 	/*margin-left: ;*/
   /*transition: fill 0.2s ease;*/
+}
+
+
+#tt {
+
+  font-size: 13px;
+  background-color: #FFF;
+  padding: 8px;
+  position: absolute;
+  border: 1px solid #CCC;
+
+}
+
+
+#tt .votes {
+  text-align: right;
 }
 
 .boco {

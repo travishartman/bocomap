@@ -541,8 +541,48 @@ var path = d3.geo.path()
     .attr("class", function(d) { return "boco"})
     .attr("id", function(d) {return "dist" + d.properties.VOTING_DIS;})
     .attr("d", path)
-    .on("mouseover",infoBoxUpdates[selector])
-    .on("mouseout",infoBoxUpdates.clear);
+    .on("mouseover", function(d) {
+
+      var precinct = d.properties.VOTING_DIS;
+      var raceResults = thedata[precinct][selector];
+    
+
+      var ttMarkup = "";
+      $.each(raceResults, function(i, item) {
+        ttMarkup +=
+          "<tr>"+
+            "<td class='cand'>"+item.cand+" ("+item.party+")</td>"+
+            "<td class='votes'>"+item.votes+"</td>"+
+          "</tr>"
+      })      
+
+      $("#tt table.results").html(ttMarkup);
+      $("#tt").show();
+
+    })
+    .on("mousemove", function() {
+
+      var coordinates = [0, 0];
+      coordinates = d3.mouse(this);
+      var x = coordinates[0];
+      var y = coordinates[1];
+
+      var xOffset = $("#tt").width() / 2;
+      var yOffset = $("#tt").height() + 50;
+
+      $("#tt").css({
+        "top" : (y-yOffset)+"px",
+        "left" : (x-xOffset)+"px"
+      })
+
+    })
+    .on("mouseout", function() {
+      $("#tt").hide();
+    });
+
+
+    // .on("mouseover",infoBoxUpdates[selector])
+    // .on("mouseout",infoBoxUpdates.clear);
 
     
 
