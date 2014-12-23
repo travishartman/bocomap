@@ -72,6 +72,12 @@ fill: #828282;
     border-radius:10px;
         }
 
+#infobox {
+	margin-top: -85%;
+	margin-left: 70%;
+	width: 200px;
+	height: 500px;
+}
 
 /*opacity*/
 .forty-fortyfive {

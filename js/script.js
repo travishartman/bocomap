@@ -11,7 +11,7 @@ var svg = d3.select(".chart")
 var thedata;
 var theRaces = {};
 var theCandidates = {};
-
+selector = "audit";
 
 
 
@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 
 
-infoboxUpdate = {
+infoBoxUpdates = {
 
   audit: function(d){
 
@@ -36,27 +36,106 @@ infoboxUpdate = {
     // deleted "fips" from the ID of the map
            dist = this.id.replace(/^dist/,''),
            // pulls the data from the currview dataset
-           
+
            data = thedata;
-           
-console.log(dist)
+         
 
            if (selector === "audit"){
 
+                       $.each(thedata, function(i, pollplace) { 
+        // console.log(i)
+        // console.log( "i = " + i + " " + "pollplace = " + pollplace)
+            // $.each(pollplace, function(racename, racearray) {
+                // console.log( "racename = " + racename + " " + "racearray = " + racearray)
+        var district = thedata[i][selector];
+           
+
+                    el = d3.selectAll('path#dist'+[i]);
+
+        var max = {candidate: "", votes: 0, party: "", percentage:0};
+        var sum = 0;
+          for (candidateId in district)
+
+          { var candName = district[candidateId].cand
+            var candVote = district[candidateId].votes
+            var candParty   = district[candidateId].party
+                   sum = district[candidateId].votes + sum;
+
+              if (district[candidateId].votes > max.votes) 
+              {
+              max = {candidate: district[candidateId].cand, votes: district[candidateId].votes, party: district[candidateId].party, percentage: district[candidateId].votes/sum};
+
+              }    
+
+                   // console.log(max.candidate)
+                // message =  max.party + " " + max.candidate + " " + max.percentage;
+                max.percentage = (max.votes/sum*100).toFixed(2);
+
+      // message =  max.party + " " + max.candidate + " " + max.percentage;
+      // message += candName;
+ message =  district[1].cand
+
+           }
+           // message = max.candidate
+           console.log(district)
+                   console.log(i)
+                   // infoBox.html("test" + message)
+
+
+           }) 
+
+infoBox.html("test" + message)
+            }else if (selector === "usrep4"){
+
+
+           }
+            else if (selector === "strep44"){ 
+
+            }
+            else if (selector === "strep47"){ 
+
+                }
+            else if (selector === "jcirc13"){ 
+
+                    }
+           else if (selector === "commish"){ 
+
+                        }
+            else if (selector === "revenue"){ 
+
+                            }
+            else if (selector === "deeds"){ 
+
+                                }
+
 
         // preps the message:  sets the county text to a headline (and starts an unordered list)
-        message = "this is a test";
+        // message = dist;
+
+ 
+
+  // message += district;
 
 
 
-  message += "this is another message";
-
-  infoBox.html(message);
 
 
-}
-}
-}
+
+
+// })
+},
+
+clear: function(d){
+    var infoBox = $('#infobox');
+    var clearmessage = " ";
+    infoBox.html(clearmessage);
+  },
+
+};
+
+
+
+
 // the get data function
 function getData() {
 
@@ -200,8 +279,8 @@ selector = "audit"
               // console.log("divided by")
               // console.log(sum)
               }    
-              console.log(candName)
-              console.log(sum)
+              // console.log(candName)
+              // console.log(sum)
 
           } //close inner nested for/if loop
 
@@ -462,8 +541,8 @@ var path = d3.geo.path()
     .attr("class", function(d) { return "boco"})
     .attr("id", function(d) {return "dist" + d.properties.VOTING_DIS;})
     .attr("d", path)
-    // .on("mouseover",infoBoxUpdates[selector])
-    // .on("mouseout",infoBoxUpdates.clear);
+    .on("mouseover",infoBoxUpdates[selector])
+    .on("mouseout",infoBoxUpdates.clear);
 
     
 
@@ -473,7 +552,7 @@ var path = d3.geo.path()
     .attr("class", "bocomap-edges");
 
 
-
+infoBoxUpdates[selector];
 
 });
 
@@ -483,7 +562,7 @@ function setNav () {
     $(".btn").on("click", function() {
         selector = $(this).attr("val");
         // console.log(selector)
-    infoboxUpdate[selector];
+    infoBoxUpdates[selector];
     update();
 
     $(".btn.btn-default").removeClass("active");
